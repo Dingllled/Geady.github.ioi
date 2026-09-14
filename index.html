@@ -5,114 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcade Hub | Unblocked Games</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        /* ==========================================================================
-           1. THEME VARIABLES CONTROL CENTER (Class-Based Structure)
-           ========================================================================== */
-        
-        /* --- NORMAL (Default Purple, Light Blue, Pink) --- */
-        
-        body, body.theme-normal {
-            --bg-color: #0d0614;
-            --header-bg: linear-gradient(180deg, rgba(29, 21, 48, 0.8) 0%, rgba(18, 12, 31, 0.9) 100%);
-            --accent-border: #ff007f;
-            --accent-glow: 0 0 15px rgba(255, 0, 127, 0.3);
-            --gradient-start: #00d2ff;
-            --gradient-end: #ff007f;
-            --subtext-color: #bcaed4;
-            --input-bg: rgba(29, 21, 48, 0.9);
-            --border-color: #3c2d59;
-            --card-bg: rgba(29, 21, 48, 0.85);
-            --info-bg: rgba(22, 15, 38, 0.9);
-            --info-text: #00d2ff;
+        /* Cyber Neon Theme (Purple, Light Blue, Pink) */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
         }
-
-        /* --- DARK THEME --- */
-        body.theme-dark {
-            --bg-color: #050505;
-            --header-bg: linear-gradient(180deg, #111 0%, #050505 100%);
-            --accent-border: #444444;
-            --accent-glow: none;
-            --gradient-start: #ffffff;
-            --gradient-end: #555555;
-            --subtext-color: #777777;
-            --input-bg: #111111;
-            --border-color: #222222;
-            --card-bg: #111111;
-            --info-bg: #0a0a0a;
-            --info-text: #ffffff;
-        }
-
-        /* --- HALLOWEEN THEME --- */
-        body.theme-halloween {
-            --bg-color: #140700;
-            --header-bg: linear-gradient(180deg, rgba(41, 18, 0, 0.8) 0%, rgba(20, 9, 0, 0.9) 100%);
-            --accent-border: #ff6600;
-            --accent-glow: 0 0 15px rgba(255, 102, 0, 0.4);
-            --gradient-start: #ffaa00;
-            --gradient-end: #ff3300;
-            --subtext-color: #d4a373;
-            --input-bg: rgba(41, 18, 0, 0.9);
-            --border-color: #5c2c00;
-            --card-bg: rgba(41, 18, 0, 0.85);
-            --info-bg: rgba(26, 11, 0, 0.9);
-            --info-text: #ffaa00;
-        }
-
-        /* --- WINTER THEME --- */
-        body.theme-winter {
-            --bg-color: #0b1320;
-            --header-bg: linear-gradient(180deg, rgba(24, 38, 59, 0.8) 0%, rgba(11, 19, 32, 0.9) 100%);
-            --accent-border: #00bfff;
-            --accent-glow: 0 0 15px rgba(0, 191, 255, 0.4);
-            --gradient-start: #e0f7fa;
-            --gradient-end: #80deea;
-            --subtext-color: #a9c2d0;
-            --input-bg: rgba(24, 38, 59, 0.9);
-            --border-color: #1a365d;
-            --card-bg: rgba(24, 38, 59, 0.85);
-            --info-bg: rgba(15, 26, 42, 0.9);
-            --info-text: #00bfff;
-        }
-
-        /* --- CHRISTMAS THEME --- */
-        body.theme-christmas {
-            --bg-color: #07140b;
-            --header-bg: linear-gradient(180deg, rgba(13, 41, 21, 0.8) 0%, rgba(7, 20, 11, 0.9) 100%);
-            --accent-border: #ff0000;
-            --accent-glow: 0 0 15px rgba(255, 0, 0, 0.4);
-            --gradient-start: #ff3333;
-            --gradient-end: #00cc44;
-            --subtext-color: #a3d4b0;
-            --input-bg: rgba(13, 41, 21, 0.9);
-            --border-color: #0a3314;
-            --card-bg: rgba(13, 41, 21, 0.85);
-            --info-bg: rgba(8, 28, 14, 0.9);
-            --info-text: #ff3333;
-        }
-
-        /* --- EVIL THEME --- */
-        body.theme-evil {
-            --bg-color: #0f0000;
-            --header-bg: linear-gradient(180deg, rgba(36, 0, 0, 0.8) 0%, rgba(15, 0, 0, 0.9) 100%);
-            --accent-border: #ff0000;
-            --accent-glow: 0 0 15px rgba(255, 0, 0, 0.5);
-            --gradient-start: #330000;
-            --gradient-end: #ff0000;
-            --subtext-color: #8a6c6c;
-            --input-bg: rgba(36, 0, 0, 0.9);
-            --border-color: #5c0000;
-            --card-bg: rgba(36, 0, 0, 0.85);
-            --info-bg: rgba(20, 0, 0, 0.9);
-            --info-text: #ff0000;
-        }
-
-        /* ==========================================================================
-           2. INTERFACE LAYOUT
-           ========================================================================== */
         body { 
-            background-color: var(--bg-color); 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: #0d0614; 
             color: #ffffff; 
             padding: 20px; 
             position: relative;
@@ -120,78 +21,279 @@
             min-height: 100vh;
         }
 
-        #bgCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
-        .main-wrapper { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
-
-        /* Settings Toggle Button */
-        .settings-toggle-btn {
+        /* Matrix Particle Canvas Layer */
+        #bgCanvas {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background: var(--header-bg);
-            border: 2px solid var(--accent-border);
-            border-radius: 50%;
-            color: #fff;
-            font-size: 1.4rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
         }
-        .settings-toggle-btn:hover { transform: rotate(45deg); }
-
-        header { 
-            text-align: center; margin-bottom: 30px; padding: 30px 10px; 
-            background: var(--header-bg); border-radius: 12px; border-bottom: 3px solid var(--accent-border); 
-            backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-        h1 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; color: #ffffff; letter-spacing: 1px; }
-        h1 span { background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { color: var(--subtext-color); font-size: 1.1rem; margin-top: 8px; }
-
-        .controls { max-width: 600px; margin: 0 auto 20px auto; display: flex; gap: 10px; }
-        .search-box { 
-            flex: 1; padding: 14px 20px; background-color: var(--input-bg); border: 2px solid var(--border-color); 
-            border-radius: 8px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s; backdrop-filter: blur(4px);
-        }
-        .search-box:focus { border-color: var(--gradient-start); }
-        .back-btn { padding: 0 20px; background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start)); border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: none; }
-
-        .tabs-container { display: flex; justify-content: center; gap: 10px; max-width: 750px; margin: 0 auto 30px auto; flex-wrap: wrap; }
-        .tab-btn { padding: 10px 20px; background-color: var(--input-bg); border: 2px solid var(--border-color); border-radius: 20px; color: var(--subtext-color); font-weight: 600; cursor: pointer; transition: all 0.2s ease; backdrop-filter: blur(4px); }
-        .tab-btn:hover { border-color: var(--gradient-start); color: #fff; }
-        .tab-btn.active { background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start)); border-color: transparent; color: #fff; box-shadow: var(--accent-glow); }
-
-        .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; width: 100%; }
-        .game-card { background-color: var(--card-bg); border-radius: 8px; overflow: hidden; transition: all 0.2s; cursor: pointer; border: 2px solid transparent; display: flex; flex-direction: column; backdrop-filter: blur(4px); }
-        .game-card:hover { transform: scale(1.04); border-color: var(--accent-border); box-shadow: var(--accent-glow); }
-        .thumbnail { width: 100%; height: 150px; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2)); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; overflow: hidden; position: relative; }
-        .game-info { padding: 12px; text-align: center; font-weight: bold; font-size: 1rem; background-color: var(--info-bg); border-top: 1px solid var(--border-color); color: var(--info-text); margin-top: auto; }
-        .game-card:hover .game-info { color: var(--accent-border); }
-
-        .game-frame-container { display: none; width: 100%; background: var(--input-bg); padding: 10px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid var(--accent-border); }
-        iframe { width: 100%; height: 600px; border: none; border-radius: 6px; background-color: #000; }
-
-        /* Settings Modal Panel Overlays */
-        .settings-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 5, 15, 0.7); backdrop-filter: blur(8px); z-index: 10000;
-            align-items: center; justify-content: center;
-        }
-        .settings-content {
-            background: #160f26; border: 2px solid var(--accent-border); border-radius: 12px;
-            width: 90%; max-width: 450px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            display: flex; flex-direction: column; gap: 20px;
-        }
-        .settings-header { display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.3rem; color: #00d2ff; }
-        .close-modal { background: none; border: none; color: #ff007f; font-size: 1.4rem; cursor: pointer; }
         
-        .settings-group { display: flex; flex-direction: column; gap: 8px; }
-        .settings-group label { font-size: 0.9rem; font-weight: 600; color: #bcaed4; text-transform: uppercase; letter-spacing: 0.5px; }
-Use code with caution..theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }.theme-btn { padding: 10px; background: #0d0614; border: 1px solid #3c2d59; border-radius: 6px; color: #fff; font-size: 0.85rem; cursor: pointer; font-weight: 600; text-transform: capitalize; transition: all 0.2s; }.theme-btn:hover { border-color: #ff007f; }.theme-btn.active-theme { border-color: #00d2ff; background: rgba(0,210,255,0.1); }/* Credits Box Styling */.credits-container {background: #0d0614; border: 1px solid #3c2d59; border-radius: 6px;padding: 15px; font-size: 0.9rem; line-height: 1.5; color: #bcaed4;}.credits-container strong { color: #00d2ff; }⚙️Website Settings✕Select Theme ProfileNormalDarkHalloweenWinterChristmasEvilWebsite CreditsOwner & Dev: Main AdministratorFramework Hosting: GitHub Pages InfrastructureGame Mirrors: 3kh0 Open-Source Static RepositoriesArcade UnblockedBeginner Unblocked Website (more games come soon) (also jago is gay)↩ BackAllShootingCarRacing🎮Roblox Client🏈Retro Bowl🟢Slope 3D🔫Pixel Warfarelet currentCategory = 'all';let activeTheme = 'normal';const particleColors = {normal: ['rgba(255, 0, 127, 0.15)', 'rgba(0, 210, 255, 0.15)', 'rgba(140, 80, 255, 0.15)'],dark: ['rgba(255,255,255,0.05)', 'rgba(100,100,100,0.05)'],halloween: ['rgba(255, 102, 0, 0.2)', 'rgba(255, 215, 0, 0.1)'],winter: ['rgba(255,255,255,0.3)', 'rgba(135,206,250,0.2)'],christmas: ['rgba(255, 0, 127, 0.15)', 'rgba(0, 200, 50, 0.15)', 'rgba(255,255,255,0.2)'],evil: ['rgba(255,0,0,0.25)', 'rgba(0,0,0,0.5)']};const canvas = document.getElementById('bgCanvas');const ctx = canvas.getContext('2d');let width = canvas.width = window.innerWidth;let height = canvas.height = window.innerHeight;const particles = [];const particleCount = 65;class Particle {constructor() { this.reset(); }reset() {this.x = Math.random() * width;this.y = Math.random() * height - height;this.size = Math.random() * 3 + 1;this.speed = Math.random() * 1.5 + 0.5;const set = particleColors[activeTheme] || particleColors.normal;this.color = set[Math.floor(Math.random() * set.length)];}update() { this.y += this.speed; if (this.y > height) this.reset(); }draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }}function initParticles() { particles.length = 0; for (let i = 0; i < particleCount; i++) particles.push(new Particle()); }function animateParticles() { ctx.clearRect(0, 0, width, height); for (let p of particles) { p.update(); p.draw(); } requestAnimationFrame(animateParticles); }window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });initParticles(); animateParticles();function playGame(url) {document.getElementById('gamesGrid').style.display = 'none';document.getElementById('search').style.display = 'none';document.getElementById('tabsBox').style.display = 'none';document.getElementById('frameContainer').style.display = 'block';document.getElementById('backBtn').style.display = 'block';document.getElementById('gameIframe').src = url;}function closeGame() {document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';document.getElementById('tabsBox').style.display = 'flex';document.getElementById('frameContainer').style.display = 'none';document.getElementById('backBtn').style.display = 'none';document.getElementById('gameIframe').src = '';filterGames();}function filterCategory(category, button) {currentCategory = category;document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';const buttons = document.getElementsByClassName('tab-btn');for (let btn of buttons) { btn.classList.remove('active'); }button.classList.add('active');filterGames();}function filterGames() {const query = document.getElementById('search').value.toLowerCase();const items = document.getElementsByClassName('game-card');for (let i = 0; i < items.length; i++) {const title = items[i].querySelector('.game-info').innerText.toLowerCase();const itemCategory = items[i].getAttribute('data-category');const matchesSearch = title.includes(query);const matchesTab = (currentCategory === 'all' || itemCategory === currentCategory);items[i].style.display = (matchesSearch && matchesTab) ? "flex" : "none";}}function toggleSettingsModal() {const modal = document.getElementById('settingsModal');modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';}function applyThemeProfile(themeKey) {activeTheme = themeKey;document.body.className = '';document.body.classList.add('theme-' + themeKey);initParticles();const buttons = document.getElementsByClassName('theme-btn');for(let b of buttons) b.classList.remove('active-theme');document.getElementById('btn-' + themeKey).classList.add('active-theme');}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+        /* Content Wrapper Above Canvas */
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Banner Header Section */
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding: 30px 10px; 
+            background: linear-gradient(180deg, rgba(29, 21, 48, 0.8) 0%, rgba(18, 12, 31, 0.9) 100%); 
+            border-radius: 12px; 
+            border-bottom: 3px solid #ff007f; 
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        h1 { 
+            font-size: 2.8rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            color: #ffffff; 
+            letter-spacing: 1px; 
+            text-shadow: 2px 2px 8px rgba(255, 0, 127, 0.4); 
+        }
+        h1 span { 
+            background: linear-gradient(45deg, #00d2ff, #ff007f); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        header p { 
+            color: #bcaed4; 
+            font-size: 1.1rem; 
+            margin-top: 8px; 
+        }
+
+        /* Navigation Control Panel */
+        .controls { 
+            max-width: 600px; 
+            margin: 0 auto 20px auto; 
+            display: flex; 
+            gap: 10px; 
+        }
+        .search-box { 
+            flex: 1; 
+            padding: 14px 20px; 
+            background-color: rgba(29, 21, 48, 0.9); 
+            border: 2px solid #3c2d59; 
+            border-radius: 8px; 
+            color: #fff; 
+            font-size: 1rem; 
+            outline: none; 
+            transition: border-color 0.2s, box-shadow 0.2s; 
+            backdrop-filter: blur(4px);
+        }
+        .search-box:focus { 
+            border-color: #00d2ff; 
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); 
+        }
+        .back-btn { 
+            padding: 0 20px; 
+            background: linear-gradient(45deg, #ff007f, #00d2ff); 
+            border: none; 
+            border-radius: 8px; 
+            color: white; 
+            font-weight: bold; 
+            cursor: pointer; 
+            display: none; 
+        }
+
+        /* Dynamic Filtering Category Tabs */
+        .tabs-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            max-width: 750px; 
+            margin: 0 auto 30px auto; 
+            flex-wrap: wrap; 
+        }
+        .tab-btn { 
+            padding: 10px 20px; 
+            background-color: rgba(29, 21, 48, 0.9); 
+            border: 2px solid #3c2d59; 
+            border-radius: 20px; 
+            color: #bcaed4; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            backdrop-filter: blur(4px);
+        }
+        .tab-btn:hover { 
+            border-color: #00d2ff; 
+            color: #fff; 
+        }
+        .tab-btn.active { 
+            background: linear-gradient(45deg, #ff007f, #00d2ff); 
+            border-color: transparent; 
+            color: #fff; 
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.3); 
+        }
+
+        /* Arcade Grid System */
+        .games-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px; 
+            width: 100%;
+        }
+        .game-card { 
+            background-color: rgba(29, 21, 48, 0.85); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; 
+            cursor: pointer; 
+            border: 2px solid transparent; 
+            display: flex; 
+            flex-direction: column; 
+            backdrop-filter: blur(4px);
+        }
+        .game-card:hover { 
+            transform: scale(1.04); 
+            border-color: #ff007f; 
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3); 
+        }
+        
+        /* Grid Graphical Thumbnails */
+        .thumbnail { 
+            width: 100%; 
+            height: 150px; 
+            background: linear-gradient(135deg, #2b1f47, #1d1530); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 3.5rem; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        
+        /* Game Info Text Labels */
+        .game-info { 
+            padding: 12px; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 1rem; 
+            background-color: rgba(22, 15, 38, 0.9); 
+            border-top: 1px solid #1d1530; 
+            color: #00d2ff; 
+            margin-top: auto; 
+        }
+        .game-card:hover .game-info { 
+            color: #ff007f; 
+        }
+
+        /* Game IFrame Screen Wrapper */
+        .game-frame-container { 
+            display: none; 
+            width: 100%;
+            background: #1d1530; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border: 2px solid #ff007f; 
+        }
+        iframe { 
+            width: 100%; 
+            height: 600px; 
+            border: none; 
+            border-radius: 6px; 
+            background-color: #000; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Canvas layer for ambient neon particles -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="main-wrapper">
+        <!-- Header & Brand Bio Components -->
+        <header>
+            <h1>Arcade <span>Unblocked</span></h1>
+            <p>Beginner Unblocked Website (more games come soon) (also jago is gay)</p>
+        </header>
+
+        <!-- Top Navigation Controls -->
+        <div class="controls">
+            <input type="text" id="search" class="search-box" placeholder="Search unblocked options..." onkeyup="filterGames()">
+            <button id="backBtn" class="back-btn" onclick="closeGame()">↩ Back</button>
+        </div>
+
+        <!-- Group Segment Controls Setup -->
+        <div class="tabs-container" id="tabsBox">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">All</button>
+            <button class="tab-btn" onclick="filterCategory('shooting', this)">Shooting</button>
+            <button class="tab-btn" onclick="filterCategory('car', this)">Car</button>
+            <button class="tab-btn" onclick="filterCategory('racing', this)">Racing</button>
+        </div>
+
+        <!-- Web Embedded Engine Screen Component -->
+        <div class="game-frame-container" id="frameContainer">
+            <iframe id="gameIframe" src=""></iframe>
+        </div>
+
+        <!-- Main Games Grid -->
+        <div class="games-grid" id="gamesGrid">
+            <div class="game-card" data-category="car" onclick="playGame('https://rbxcdn.com')">
+                <div class="thumbnail">🎮</div>
+                <div class="game-info">Roblox Client</div>
+            </div>
+
+            <div class="game-card" data-category="racing" onclick="playGame('https://github.io')">
+                <div class="thumbnail">🏈</div>
+                <div class="game-info">Retro Bowl</div>
+            </div>
+
+            <div class="game-card" data-category="racing" onclick="playGame('https://github.io')">
+                <div class="thumbnail">🟢</div>
+                <div class="game-info">Slope 3D</div>
+            </div>
+
+            <div class="game-card" data-category="shooting" onclick="playGame('https://github.io')">
+                <div class="thumbnail">🔫</div>
+                <div class="game-info">Pixel Warfare</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = 'all';
+
+        // Background Particle Engine Logic
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 65;
+        const colors = ['rgba(255, 0, 127, 0.15)', 'rgba(0, 210, 255, 0.15)', 'rgba(140, 80, 255, 0.15)'];
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height - height;
+                this.size = Math.random() * 3 + 1;
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            update() {
+                this.y += this.speed;
+                if (this.y > height) {
+                    this.reset();
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+Use code with caution.ctx.fill();}}function initParticles() {for (let i = 0; i < particleCount; i++) {particles.push(new Particle());}}function animateParticles() {ctx.clearRect(0, 0, width, height);for (let p of particles) {p.update();p.draw();}requestAnimationFrame(animateParticles);}window.addEventListener('resize', () => {width = canvas.width = window.innerWidth;height = canvas.height = window.innerHeight;});initParticles();animateParticles();// Launches game inside viewport framefunction playGame(url) {document.getElementById('gamesGrid').style.display = 'none';document.getElementById('search').style.display = 'none';document.getElementById('tabsBox').style.display = 'none';document.getElementById('frameContainer').style.display = 'block';document.getElementById('backBtn').style.display = 'block';document.getElementById('gameIframe').src = url;}// Returns screen configuration to hub layoutfunction closeGame() {document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';document.getElementById('tabsBox').style.display = 'flex';document.getElementById('frameContainer').style.display = 'none';document.getElementById('backBtn').style.display = 'none';document.getElementById('gameIframe').src = '';filterGames();}// Activates category tabs filteringfunction filterCategory(category, button) {currentCategory = category;document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';const buttons = document.getElementsByClassName('tab-btn');for (let btn of buttons) { btn.classList.remove('active'); }button.classList.add('active');filterGames();}// Search inputs & Tag constraints filter logicfunction filterGames() {const query = document.getElementById('search').value.toLowerCase();const items = document.getElementsByClassName('game-card');for (let i = 0; i < items.length; i++) {const title = items[i].querySelector('.game-info').innerText.toLowerCase();const itemCategory = items[i].getAttribute('data-category');const matchesSearch = title.includes(query);const matchesTab = (currentCategory === 'all' || itemCategory === currentCategory);if (matchesSearch && matchesTab) {items[i].style.display = "flex";} else {items[i].style.display = "none";}}}
