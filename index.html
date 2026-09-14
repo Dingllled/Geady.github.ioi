@@ -4,227 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcade Hub | Unblocked Games</title>
-    <style>
-        /* Cyber Neon Theme (Purple, Light Blue, Pink) */
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
+    <style id="themeStyles">
+        /* --- DEFAULT THEME: NORMAL (Purple, Light Blue, Pink) --- */
+        :root {
+            --bg-color: #0d0614;
+            --header-bg: linear-gradient(180deg, rgba(29, 21, 48, 0.8) 0%, rgba(18, 12, 31, 0.9) 100%);
+            --accent-border: #ff007f;
+            --accent-glow: rgba(255, 0, 127, 0.3);
+            --text-glow: rgba(255, 0, 127, 0.4);
+            --gradient-start: #00d2ff;
+            --gradient-end: #ff007f;
+            --subtext-color: #bcaed4;
+            --input-bg: rgba(29, 21, 48, 0.9);
+            --border-color: #3c2d59;
+            --card-bg: rgba(29, 21, 48, 0.85);
+            --info-bg: rgba(22, 15, 38, 0.9);
+            --info-text: #00d2ff;
+            --particle-1: rgba(255, 0, 127, 0.15);
+            --particle-2: rgba(0, 210, 255, 0.15);
+            --particle-3: rgba(140, 80, 255, 0.15);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #0d0614; 
+            background-color: var(--bg-color); 
             color: #ffffff; 
             padding: 20px; 
             position: relative;
             overflow-x: hidden;
             min-height: 100vh;
+            transition: background-color 0.5s ease;
         }
 
-        /* Matrix Particle Canvas Layer */
-        #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        /* Content Wrapper Above Canvas */
-        .main-wrapper {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        #bgCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+        .main-wrapper { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
 
-        /* Banner Header Section */
         header { 
-            text-align: center; 
-            margin-bottom: 30px; 
-            padding: 30px 10px; 
-            background: linear-gradient(180deg, rgba(29, 21, 48, 0.8) 0%, rgba(18, 12, 31, 0.9) 100%); 
-            border-radius: 12px; 
-            border-bottom: 3px solid #ff007f; 
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-align: center; margin-bottom: 30px; padding: 30px 10px; 
+            background: var(--header-bg); border-radius: 12px; border-bottom: 3px solid var(--accent-border); 
+            backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); transition: all 0.5s ease;
         }
-        h1 { 
-            font-size: 2.8rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            color: #ffffff; 
-            letter-spacing: 1px; 
-            text-shadow: 2px 2px 8px rgba(255, 0, 127, 0.4); 
-        }
-        h1 span { 
-            background: linear-gradient(45deg, #00d2ff, #ff007f); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        header p { 
-            color: #bcaed4; 
-            font-size: 1.1rem; 
-            margin-top: 8px; 
-        }
+        h1 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; color: #ffffff; letter-spacing: 1px; text-shadow: 2px 2px 8px var(--text-glow); }
+        h1 span { background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: var(--subtext-color); font-size: 1.1rem; margin-top: 8px; }
 
-        /* Navigation Control Panel */
-        .controls { 
-            max-width: 600px; 
-            margin: 0 auto 20px auto; 
-            display: flex; 
-            gap: 10px; 
-        }
+        .controls { max-width: 600px; margin: 0 auto 20px auto; display: flex; gap: 10px; }
         .search-box { 
-            flex: 1; 
-            padding: 14px 20px; 
-            background-color: rgba(29, 21, 48, 0.9); 
-            border: 2px solid #3c2d59; 
-            border-radius: 8px; 
-            color: #fff; 
-            font-size: 1rem; 
-            outline: none; 
-            transition: border-color 0.2s, box-shadow 0.2s; 
-            backdrop-filter: blur(4px);
+            flex: 1; padding: 14px 20px; background-color: var(--input-bg); border: 2px solid var(--border-color); 
+            border-radius: 8px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s; backdrop-filter: blur(4px);
         }
-        .search-box:focus { 
-            border-color: #00d2ff; 
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); 
-        }
-        .back-btn { 
-            padding: 0 20px; 
-            background: linear-gradient(45deg, #ff007f, #00d2ff); 
-            border: none; 
-            border-radius: 8px; 
-            color: white; 
-            font-weight: bold; 
-            cursor: pointer; 
-            display: none; 
-        }
+        .search-box:focus { border-color: var(--gradient-start); box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); }
+        .back-btn { padding: 0 20px; background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start)); border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: none; }
 
-        /* Dynamic Filtering Category Tabs */
-        .tabs-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 10px; 
-            max-width: 750px; 
-            margin: 0 auto 30px auto; 
-            flex-wrap: wrap; 
-        }
-        .tab-btn { 
-            padding: 10px 20px; 
-            background-color: rgba(29, 21, 48, 0.9); 
-            border: 2px solid #3c2d59; 
-            border-radius: 20px; 
-            color: #bcaed4; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: all 0.2s ease; 
-            backdrop-filter: blur(4px);
-        }
-        .tab-btn:hover { 
-            border-color: #00d2ff; 
-            color: #fff; 
-        }
-        .tab-btn.active { 
-            background: linear-gradient(45deg, #ff007f, #00d2ff); 
-            border-color: transparent; 
-            color: #fff; 
-            box-shadow: 0 0 10px rgba(255, 0, 127, 0.3); 
-        }
+        .tabs-container { display: flex; justify-content: center; gap: 10px; max-width: 750px; margin: 0 auto 30px auto; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; background-color: var(--input-bg); border: 2px solid var(--border-color); border-radius: 20px; color: var(--subtext-color); font-weight: 600; cursor: pointer; transition: all 0.2s ease; backdrop-filter: blur(4px); }
+        .tab-btn:hover { border-color: var(--gradient-start); color: #fff; }
+        .tab-btn.active { background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start)); border-color: transparent; color: #fff; box-shadow: 0 0 10px var(--accent-glow); }
 
-        /* Arcade Grid System */
-        .games-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-            gap: 20px; 
-            width: 100%;
-        }
-        .game-card { 
-            background-color: rgba(29, 21, 48, 0.85); 
-            border-radius: 8px; 
-            overflow: hidden; 
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; 
-            cursor: pointer; 
-            border: 2px solid transparent; 
-            display: flex; 
-            flex-direction: column; 
-            backdrop-filter: blur(4px);
-        }
-        .game-card:hover { 
-            transform: scale(1.04); 
-            border-color: #ff007f; 
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3); 
-        }
-        
-        /* Grid Graphical Thumbnails */
-        .thumbnail { 
-            width: 100%; 
-            height: 150px; 
-            background: linear-gradient(135deg, #2b1f47, #1d1530); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 3.5rem; 
-            overflow: hidden; 
-            position: relative; 
-        }
-        
-        /* Game Info Text Labels */
-        .game-info { 
-            padding: 12px; 
-            text-align: center; 
-            font-weight: bold; 
-            font-size: 1rem; 
-            background-color: rgba(22, 15, 38, 0.9); 
-            border-top: 1px solid #1d1530; 
-            color: #00d2ff; 
-            margin-top: auto; 
-        }
-        .game-card:hover .game-info { 
-            color: #ff007f; 
-        }
+        .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; width: 100%; }
+        .game-card { background-color: var(--card-bg); border-radius: 8px; overflow: hidden; transition: all 0.2s; cursor: pointer; border: 2px solid transparent; display: flex; flex-direction: column; backdrop-filter: blur(4px); }
+        .game-card:hover { transform: scale(1.04); border-color: var(--accent-border); box-shadow: 0 0 15px var(--accent-glow); }
+        .thumbnail { width: 100%; height: 150px; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2)); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; overflow: hidden; position: relative; }
+        .game-info { padding: 12px; text-align: center; font-weight: bold; font-size: 1rem; background-color: var(--info-bg); border-top: 1px solid var(--border-color); color: var(--info-text); margin-top: auto; transition: color 0.2s; }
+        .game-card:hover .game-info { color: var(--accent-border); }
 
-        /* Game IFrame Screen Wrapper */
-        .game-frame-container { 
-            display: none; 
-            width: 100%;
-            background: #1d1530; 
-            padding: 10px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            border: 2px solid #ff007f; 
+        .game-frame-container { display: none; width: 100%; background: var(--input-bg); padding: 10px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid var(--accent-border); }
+        iframe { width: 100%; height: 600px; border: none; border-radius: 6px; background-color: #000; }
+
+        /* Hidden Developer Script Console Overlay */
+        #devConsole {
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(10, 5, 15, 0.95);
+            border-top: 2px solid #ff007f; padding: 15px; font-family: 'Courier New', monospace; z-index: 10000;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.8); backdrop-filter: blur(10px);
         }
-        iframe { 
-            width: 100%; 
-            height: 600px; 
-            border: none; 
-            border-radius: 6px; 
-            background-color: #000; 
-        }
+        #consoleLog { max-height: 120px; overflow-y: auto; color: #00ffcc; font-size: 0.85rem; margin-bottom: 10px; white-space: pre-wrap; }
+        .console-input-row { display: flex; align-items: center; gap: 10px; }
+        .console-prompt { color: #ff007f; font-weight: bold; }
+        #consoleInput { flex: 1; background: #000; border: 1px solid #3c2d59; color: #fff; padding: 8px 12px; font-family: inherit; outline: none; border-radius: 4px; }
     </style>
 </head>
 <body>
 
-    <!-- Canvas layer for ambient neon particles -->
     <canvas id="bgCanvas"></canvas>
 
+    <!-- Hidden Dev Console Portal Frame -->
+    <div id="devConsole">
+        <div id="consoleLog">Welcome Admin. Type "help" for layout adjustments command nodes.</div>
+        <div class="console-input-row">
+            <span class="console-prompt">clanker_jago_os:~#</span>
+            <input type="text" id="consoleInput" placeholder="Enter systems command pipeline..." autocomplete="off">
+        </div>
+    </div>
+
     <div class="main-wrapper">
-        <!-- Header & Brand Bio Components -->
         <header>
-            <h1>Arcade <span>Unblocked</span></h1>
-            <p>Beginner Unblocked Website (more games come soon) (also jago is gay)</p>
+            <h1 id="mainTitle">Arcade <span>Unblocked</span></h1>
+            <p id="mainBio">Beginner Unblocked Website (more games come soon) (also jago is gay)</p>
         </header>
 
-        <!-- Top Navigation Controls -->
         <div class="controls">
             <input type="text" id="search" class="search-box" placeholder="Search unblocked options..." onkeyup="filterGames()">
             <button id="backBtn" class="back-btn" onclick="closeGame()">↩ Back</button>
         </div>
 
-        <!-- Group Segment Controls Setup -->
         <div class="tabs-container" id="tabsBox">
             <button class="tab-btn active" onclick="filterCategory('all', this)">All</button>
             <button class="tab-btn" onclick="filterCategory('shooting', this)">Shooting</button>
@@ -232,7 +115,6 @@
             <button class="tab-btn" onclick="filterCategory('racing', this)">Racing</button>
         </div>
 
-        <!-- Web Embedded Engine Screen Component -->
         <div class="game-frame-container" id="frameContainer">
             <iframe id="gameIframe" src=""></iframe>
         </div>
@@ -242,17 +124,14 @@
                 <div class="thumbnail">🎮</div>
                 <div class="game-info">Roblox Client</div>
             </div>
-
             <div class="game-card" data-category="racing" onclick="playGame('https://github.io')">
                 <div class="thumbnail">🏈</div>
                 <div class="game-info">Retro Bowl</div>
             </div>
-
             <div class="game-card" data-category="racing" onclick="playGame('https://github.io')">
                 <div class="thumbnail">🟢</div>
                 <div class="game-info">Slope 3D</div>
             </div>
-
             <div class="game-card" data-category="shooting" onclick="playGame('https://github.io')">
                 <div class="thumbnail">🔫</div>
                 <div class="game-info">Pixel Warfare</div>
@@ -263,40 +142,27 @@
     <script>
         let currentCategory = 'all';
 
-        // Background Particle Engine Logic
+        // Background Particle Configuration Base Maps
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
-
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
-
         const particles = [];
         const particleCount = 65;
-        const colors = ['rgba(255, 0, 127, 0.15)', 'rgba(0, 210, 255, 0.15)', 'rgba(140, 80, 255, 0.15)'];
+        let activeColors = ['rgba(255, 0, 127, 0.15)', 'rgba(0, 210, 255, 0.15)', 'rgba(140, 80, 255, 0.15)'];
 
         class Particle {
-            constructor() {
-                this.reset();
-            }
+            constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height - height;
                 this.size = Math.random() * 3 + 1;
                 this.speed = Math.random() * 1.5 + 0.5;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.color = activeColors[Math.floor(Math.random() * activeColors.length)];
             }
-            update() {
-                this.y += this.speed;
-                if (this.y > height) {
-                    this.reset();
-                }
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            update() { this.y += this.speed; if (this.y > height) this.reset(); }
+            draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
 
-Use code with caution.function initParticles() {for (let i = 0; i < particleCount; i++) {particles.push(new Particle());}}function animateParticles() {ctx.clearRect(0, 0, width, height);for (let p of particles) {p.update();p.draw();}requestAnimationFrame(animateParticles);}window.addEventListener('resize', () => {width = canvas.width = window.innerWidth;height = canvas.height = window.innerHeight;});initParticles();animateParticles();// Launches game inside viewport framefunction playGame(url) {document.getElementById('gamesGrid').style.display = 'none';document.getElementById('search').style.display = 'none';document.getElementById('tabsBox').style.display = 'none';document.getElementById('frameContainer').style.display = 'block';document.getElementById('backBtn').style.display = 'block';document.getElementById('gameIframe').src = url;}// Returns screen configuration to hub layoutfunction closeGame() {document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';document.getElementById('tabsBox').style.display = 'flex';document.getElementById('frameContainer').style.display = 'none';document.getElementById('backBtn').style.display = 'none';document.getElementById('gameIframe').src = '';filterGames();}// Activates category tabs filteringfunction filterCategory(category, button) {currentCategory = category;document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';const buttons = document.getElementsByClassName('tab-btn');for (let btn of buttons) { btn.classList.remove('active'); }button.classList.add('active');filterGames();}// Search inputs & Tag constraints filter logicfunction filterGames() {const query = document.getElementById('search').value.toLowerCase();const items = document.getElementsByClassName('game-card');for (let i = 0; i < items.length; i++) {const title = items[i].querySelector('.game-info').innerText.toLowerCase();const itemCategory = items[i].getAttribute('data-category');const matchesSearch = title.includes(query);const matchesTab = (currentCategory === 'all' || itemCategory === currentCategory);if (matchesSearch && matchesTab) {items[i].style.display = "flex";} else {items[i].style.display = "none";}}}
+        function initParticles() { particles.length = 0; for (let i = 0; i < particleCount; i++) particles.push(new Particle()); }
+Use code with caution.function animateParticles() { ctx.clearRect(0, 0, width, height); for (let p of particles) { p.update(); p.draw(); } requestAnimationFrame(animateParticles); }window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });initParticles(); animateParticles();function playGame(url) {document.getElementById('gamesGrid').style.display = 'none';document.getElementById('search').style.display = 'none';document.getElementById('tabsBox').style.display = 'none';document.getElementById('frameContainer').style.display = 'block';document.getElementById('backBtn').style.display = 'block';document.getElementById('gameIframe').src = url;}function closeGame() {document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';document.getElementById('tabsBox').style.display = 'flex';document.getElementById('frameContainer').style.display = 'none';document.getElementById('backBtn').style.display = 'none';document.getElementById('gameIframe').src = '';filterGames();}function filterCategory(category, button) {currentCategory = category;document.getElementById('gamesGrid').style.display = 'grid';document.getElementById('search').style.display = 'block';const buttons = document.getElementsByClassName('tab-btn');for (let btn of buttons) { btn.classList.remove('active'); }button.classList.add('active');filterGames();}function filterGames() {const query = document.getElementById('search').value.toLowerCase();const items = document.getElementsByClassName('game-card');for (let i = 0; i < items.length; i++) {const title = items[i].querySelector('.game-info').innerText.toLowerCase();const itemCategory = items[i].getAttribute('data-category');const matchesSearch = title.includes(query);const matchesTab = (currentCategory === 'all' || itemCategory === currentCategory);items[i].style.display = (matchesSearch && matchesTab) ? "flex" : "none";}}/* --- SECRET ADMIN SYSTEM LOGIC PIPELINE --- */const themePresets = {normal: { bg: '#0d0614', accent: '#ff007f', start: '#00d2ff', end: '#ff007f', sub: '#bcaed4', card: 'rgba(29, 21, 48, 0.85)', info: 'rgba(22, 15, 38, 0.9)', text: '#00d2ff', particles: ['rgba(255, 0, 127, 0.15)', 'rgba(0, 210, 255, 0.15)', 'rgba(140, 80, 255, 0.15)'] },dark: { bg: '#050505', accent: '#333333', start: '#ffffff', end: '#444444', sub: '#777777', card: '#111111', info: '#0a0a0a', text: '#ffffff', particles: ['rgba(255,255,255,0.05)', 'rgba(100,100,100,0.05)'] },halloween: { bg: '#140700', accent: '#ff6600', start: '#ffaa00', end: '#ff3300', sub: '#d4a373', card: 'rgba(41, 18, 0, 0.85)', info: 'rgba(26, 11, 0, 0.9)', text: '#ffaa00', particles: ['rgba(255, 102, 0, 0.2)', 'rgba(255, 215, 0, 0.1)'] },winter: { bg: '#0b1320', accent: '#00bfff', start: '#e0f7fa', end: '#80deea', sub: '#a9c2d0', card: 'rgba(24, 38, 59, 0.85)', info: 'rgba(15, 26, 42, 0.9)', text: '#00bfff', particles: ['rgba(255,255,255,0.3)', 'rgba(135,206,250,0.2)'] },christmas: { bg: '#07140b', accent: '#ff0000', start: '#ff3333', end: '#00cc44', sub: '#a3d4b0', card: 'rgba(13, 41, 21, 0.85)', info: 'rgba(8, 28, 14, 0.9)', text: '#ff3333', particles: ['rgba(255, 0, 0, 0.15)', 'rgba(0, 200, 50, 0.15)', 'rgba(255,255,255,0.2)'] },evil: { bg: '#0f0000', accent: '#ff0000', start: '#660000', end: '#ff0000', sub: '#8a6c6c', card: 'rgba(36, 0, 0, 0.85)', info: 'rgba(20, 0, 0, 0.9)', text: '#ff0000', particles: ['rgba(255,0,0,0.25)', 'rgba(0,0,0,0.5)'] }};window.addEventListener('keydown', (e) => {if (e.key === '`' || e.key === '~') {e.preventDefault();const con = document.getElementById('devConsole');con.style.display = (con.style.display === 'block') ? 'none' : 'block';if (con.style.display === 'block') document.getElementById('consoleInput').focus();}});document.getElementById('consoleInput').addEventListener('keydown', function(e) {if (e.key === 'Enter') {const val = this.value.trim();this.value = '';if (!val) return;executeCommand(val);}});function executeCommand(cmdStr) {const logger = document.getElementById('consoleLog');const parts = cmdStr.split(' ');const command = parts[0].toLowerCase();const args = parts.slice(1).join(' ');let logText = \n> ${cmdStr};if (command === 'help') {logText += \nAvailable pipelines:\n - theme [normal/dark/halloween/winter/christmas/evil]\n - title [text]\n - bio [text];} else if (command === 'theme') {const target = args.toLowerCase();if (themePresets[target]) {const t = themePresets[target];const root = document.documentElement.style;root.setProperty('--bg-color', t.bg);root.setProperty('--accent-border', t.accent);root.setProperty('--gradient-start', t.start);root.setProperty('--gradient-end', t.end);root.setProperty('--subtext-color', t.sub);root.setProperty('--card-bg', t.card);root.setProperty('--info-bg', t.info);root.setProperty('--info-text', t.text);root.setProperty('--accent-glow', t.accent === '#333333' ? 'none' : 0 0 15px ${t.accent});activeColors = t.particles;initParticles();logText += \nSuccess: Theme shifted directly to engine profiles [${target}].;} else {logText += \nError: Theme target configuration [${args}] not found.;}} else if (command === 'title') {if (args) {document.getElementById('mainTitle').innerHTML = ${args} <span>Unblocked</span>;logText += \nSuccess: System brand title reconfigured to "${args}".;} else {logText += \nError: missing title parameter input.;}} else if (command === 'bio') {if (args) {document.getElementById('mainBio').innerText = args;logText += \nSuccess: System bio text modified to "${args}".;} else {logText += \nError: missing bio description string.;}} else {logText += \nUnknown environment command execution target. Type "help" for options.;}logger.innerText += logText;logger.scrollTop = logger.scrollHeight;}
