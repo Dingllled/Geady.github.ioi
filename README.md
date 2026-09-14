@@ -1,5 +1,3 @@
-# **Geady.github.ioi**
-**Unblocked Games Website Mainly For Schools, also (jago stinks)**
 <!DOCTYPE html>
 <html lang="en">
 <head>
