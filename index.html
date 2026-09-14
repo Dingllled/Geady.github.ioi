@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geady Hub & Unblocked Games</title>
+    <title>Arcade Hub | Unblocked Games</title>
     <style>
-        /* Roblox Dashboard Theme */
+        /* Cyber Neon Theme (Purple, Light Blue, Pink) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #191b1f; color: #ffffff; padding: 20px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #120c1f; color: #ffffff; padding: 20px; }
         
         /* Banner Header */
-        header { text-align: center; margin-bottom: 30px; padding: 30px 10px; background: linear-gradient(180deg, #252831 0%, #191b1f 100%); border-radius: 12px; border-bottom: 3px solid #f68b1f; }
-        h1 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; color: #ffffff; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
-        h1 span { color: #f68b1f; } /* Accented text */
-        header p { color: #b8bac2; font-size: 1.1rem; margin-top: 8px; }
+        header { text-align: center; margin-bottom: 30px; padding: 30px 10px; background: linear-gradient(180deg, #1d1530 0%, #120c1f 100%); border-radius: 12px; border-bottom: 3px solid #ff007f; }
+        h1 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; color: #ffffff; letter-spacing: 1px; text-shadow: 2px 2px 8px rgba(255, 0, 127, 0.4); }
+        h1 span { background: linear-gradient(45deg, #00d2ff, #ff007f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: #bcaed4; font-size: 1.1rem; margin-top: 8px; }
 
         /* Navigation Control Panel */
         .controls { max-width: 600px; margin: 0 auto 30px auto; display: flex; gap: 10px; }
-        .search-box { flex: 1; padding: 14px 20px; background-color: #252831; border: 2px solid #393e4d; border-radius: 8px; color: #fff; font-size: 1rem; outline: none; }
-        .search-box:focus { border-color: #f68b1f; }
-        .back-btn { padding: 0 20px; background-color: #f68b1f; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: none; }
+        .search-box { flex: 1; padding: 14px 20px; background-color: #1d1530; border: 2px solid #3c2d59; border-radius: 8px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .search-box:focus { border-color: #00d2ff; box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); }
+        .back-btn { padding: 0 20px; background: linear-gradient(45deg, #ff007f, #00d2ff); border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: none; }
 
         /* The Virtual Arcade Grid */
         .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .game-card { background-color: #252831; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; cursor: pointer; border: 2px solid transparent; }
-        .game-card:hover { transform: scale(1.04); border-color: #f68b1f; }
+        .game-card { background-color: #1d1530; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; cursor: pointer; border: 2px solid transparent; }
+        .game-card:hover { transform: scale(1.04); border-color: #ff007f; box-shadow: 0 0 15px rgba(255, 0, 127, 0.3); }
         
         /* Thumbnail Blocks */
-        .thumbnail { width: 100%; height: 150px; background: #393e4d; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; overflow: hidden; position: relative; }
-        .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+        .thumbnail { width: 100%; height: 150px; background: linear-gradient(135deg, #2b1f47, #1d1530); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; overflow: hidden; position: relative; }
         
         /* Game Description Info */
-        .game-info { padding: 12px; text-align: center; font-weight: bold; font-size: 1rem; background-color: #1f2229; border-top: 1px solid #252831; }
+        .game-info { padding: 12px; text-align: center; font-weight: bold; font-size: 1rem; background-color: #160f26; border-top: 1px solid #1d1530; color: #00d2ff; }
+        .game-card:hover .game-info { color: #ff007f; }
 
         /* Embed Screen Frame */
-        .game-frame-container { display: none; max-width: 1000px; margin: 0 auto; background: #252831; padding: 10px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .game-frame-container { display: none; max-width: 1000px; margin: 0 auto; background: #1d1530; padding: 10px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #ff007f; }
         iframe { width: 100%; height: 600px; border: none; border-radius: 6px; background-color: #000; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Geady <span>Unblocked</span></h1>
-        <p>Instant Browser Arcade Platform (jago is gay)</p>
+        <h1>Arcade <span>Unblocked</span></h1>
+        <p>Beginner Unblocked Website (more games come soon) (also jago is gay)</p>
     </header>
 
     <div class="controls">
@@ -58,7 +58,7 @@
     <!-- Navigation Hub Grid Grid -->
     <div class="games-grid" id="gamesGrid">
         
-        <!-- Game Unit 1 (Using embedded frame injection) -->
+        <!-- Game Unit 1 -->
         <div class="game-card" onclick="playGame('https://rbxcdn.com')">
             <div class="thumbnail">🎮</div>
             <div class="game-info">Roblox Client</div>
@@ -79,7 +79,6 @@
     </div>
 
     <script>
-        // Launches the target link seamlessly in the custom IFrame viewport
         function playGame(url) {
             document.getElementById('gamesGrid').style.display = 'none';
             document.getElementById('search').style.display = 'none';
@@ -88,7 +87,6 @@
             document.getElementById('gameIframe').src = url;
         }
 
-        // Exits current game and brings player back to the selection dashboard
         function closeGame() {
             document.getElementById('gamesGrid').style.display = 'grid';
             document.getElementById('search').style.display = 'block';
@@ -97,7 +95,6 @@
             document.getElementById('gameIframe').src = '';
         }
 
-        // Live grid layout filter matching user search queries
         function filterGames() {
             const query = document.getElementById('search').value.toLowerCase();
             const items = document.getElementsByClassName('game-card');
